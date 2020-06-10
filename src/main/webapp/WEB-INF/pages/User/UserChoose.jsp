@@ -7,10 +7,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="/res/user/mycont.css" rel="stylesheet" type="text/css">
-    <link href="/res/user/input.css" rel="stylesheet" type="text/css">
-    <link href="/res/user/button.css" rel="stylesheet" type="text/css">
-    <link href="/res/user/link.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/res/user/mycont.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/res/user/input.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/res/user/button.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/res/user/link.css" rel="stylesheet" type="text/css">
     <title>
         Select
     </title>
@@ -24,7 +24,7 @@
 
             <div class="col">
                 <div class="mycont">
-                    <img src="/resources/images/human.png">
+                    <img src="${pageContext.request.contextPath}/resources/images/human.png">
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
                 <div class="margin-top8">
                     <div class="mycont somefont">
 
-                        <form action="/goTest">
+                        <form action="${pageContext.request.contextPath}/goTest">
 
                             <select class="css-input" id="themes" name="themes">
                                 <c:forEach items="${topic}" var="topic">
@@ -41,28 +41,56 @@
                             </select>
 
                             <br>
-                            <select class="css-input" id="tests" name="testName">
-                                <option>Second test</option>
-                                <option>Third test</option>
+
+                            <select class="css-input" id="tests" name="tests">
+                                <option> Third test</option>
+                                <option> Second test</option>
                             </select>
+                            <br>
+
+                            <input class="myButton" type="submit" value="Пройти тестирование">
+
+                        </form>
+
                     </div>
-                    <br>
-
-                    <input class="myButton" type="submit" value="Пройти тестирование">
-
-                    </form>
-
                 </div>
             </div>
+
         </div>
 
     </div>
-
-</div>
 </div>
 
 <script>
+
+    var somefanc2 = function () {
+        $.ajax({
+            url: "/ajaxURL",
+            dataType: "json",
+            type: "GET"
+        })
+            .done(function (data) {
+                alert("done");
+            })
+            .fail(function (xhr, status, error) {
+                alert("fail");
+            })
+    };
+
+    var setTests = function (data) {
+        $('#tests').find('option').remove();
+        $.each(data, function (index, value) {
+            $('#tests').append(new Option(value, value));
+        });
+    };
+
     $().ready(function () {
+        $("#themes").change(function () {
+            somefanc2();
+        });
+    })
+
+    /*$().ready(function () {
         $("#themes").change(function (event) {
             $.ajax({
                 url: "/UserChoose",
@@ -85,7 +113,7 @@
         $.each(data, function (index, value) {
             $('#tests').append(new Option(value, value));
         });
-    };
+    };*/
 
 </script>
 

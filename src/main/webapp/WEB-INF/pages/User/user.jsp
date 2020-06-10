@@ -6,8 +6,8 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="/res/user/mycont.css" rel="stylesheet" type="text/css">
-    <link href="/res/user/link.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/res/user/mycont.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/res/user/link.css" rel="stylesheet" type="text/css">
     <title>
         Home
     </title>
@@ -29,7 +29,7 @@
             <div class="col">
 
                 <div class="mycont">
-                    <img src="/resources/images/human.png">
+                    <img src="${pageContext.request.contextPath}/resources/images/human.png">
                 </div>
 
             </div>

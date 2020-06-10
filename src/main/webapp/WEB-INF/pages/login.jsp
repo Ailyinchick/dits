@@ -4,9 +4,9 @@
 <head>
     <title>Login</title>
     <meta charset="utf-8">
-    <link href="/res/user/input.css" rel="stylesheet" type="text/css">
-    <link href="/res/user/mycont.css" rel="stylesheet" type="text/css">
-    <link href="/res/user/button.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/res/user/input.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/res/user/mycont.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/res/user/button.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
